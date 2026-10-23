@@ -1,6 +1,6 @@
 import { io, type Socket } from 'socket.io-client'
 
-export const socket: Socket = io('wss://realtime.junglenft.local', {
+export const socket: Socket = io('/', {
   transports: ['websocket'],
   autoConnect: false,
   reconnection: true,
