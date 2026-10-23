@@ -29,23 +29,31 @@ function load(): DbSchema {
       parsed.users.forEach((u) => {
         u.wallets ??= []
       })
+      const seedMap = new Map(INITIAL_NFTS.map((n) => [n.id, n]))
       if (!Array.isArray(parsed.nfts) || parsed.nfts.length === 0) {
         parsed.nfts = seedNfts()
       } else {
-        parsed.nfts = parsed.nfts.map((n) => ({
-          ...n,
-          creatorName: n.creatorName ?? 'Artista Jungle',
-          isFavorited: Boolean(n.isFavorited),
-        }))
+        parsed.nfts = parsed.nfts.map((n) => {
+          const seeded = seedMap.get(n.id)
+          return {
+            ...n,
+            imageUrl: seeded ? seeded.imageUrl : n.imageUrl,
+            creatorName: n.creatorName ?? 'Artista Jungle',
+            isFavorited: Boolean(n.isFavorited),
+          }
+        })
       }
-      parsed.cart = (parsed.cart ?? []).map((item) => ({
-        ...item,
-        quantity: typeof item.quantity === 'number' && item.quantity > 0 ? item.quantity : 1,
-        name: item.name ?? 'NFT Colecionável',
-        imageUrl: item.imageUrl ?? '',
-        collection: item.collection ?? 'Jungle Collection',
-        creatorName: item.creatorName ?? 'Artista Jungle',
-      }))
+      parsed.cart = (parsed.cart ?? []).map((item) => {
+        const seeded = seedMap.get(item.nftId)
+        return {
+          ...item,
+          imageUrl: seeded ? seeded.imageUrl : item.imageUrl,
+          quantity: typeof item.quantity === 'number' && item.quantity > 0 ? item.quantity : 1,
+          name: item.name ?? 'NFT Colecionável',
+          collection: item.collection ?? 'Jungle Collection',
+          creatorName: item.creatorName ?? 'Artista Jungle',
+        }
+      })
       parsed.coupons ??= {}
       parsed.orders ??= []
       return parsed

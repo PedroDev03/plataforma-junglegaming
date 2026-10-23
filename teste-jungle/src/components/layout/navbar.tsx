@@ -6,7 +6,6 @@ import {
   LogOut,
   Menu,
   ShoppingBag,
-  Sparkles,
   User as UserIcon,
   UserPlus,
 } from 'lucide-react'
@@ -53,9 +52,11 @@ export function Navbar() {
             to="/"
             className="flex items-center gap-2.5 rounded-md font-bold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-xs">
-              <Sparkles className="size-4" aria-hidden="true" />
-            </span>
+            <img
+              src="/logo.jfif"
+              alt="Logo JungleNFT"
+              className="size-8 rounded-lg object-cover shadow-xs"
+            />
             <span className="text-base sm:text-lg">JungleNFT</span>
           </Link>
 
@@ -179,7 +180,14 @@ export function Navbar() {
 
             <SheetContent side="right" className="flex flex-col">
               <SheetHeader>
-                <SheetTitle>JungleNFT</SheetTitle>
+                <SheetTitle className="flex items-center gap-2">
+                  <img
+                    src="/logo.jfif"
+                    alt="Logo JungleNFT"
+                    className="size-6 rounded-md object-cover shadow-xs"
+                  />
+                  <span>JungleNFT</span>
+                </SheetTitle>
                 <SheetDescription>Navegue pelo marketplace Web3.</SheetDescription>
               </SheetHeader>
 

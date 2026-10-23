@@ -46,6 +46,11 @@ export function NftCard({ nft, priority = false, className }: NftCardProps) {
             loading={priority ? 'eager' : 'lazy'}
             fetchPriority={priority ? 'high' : 'auto'}
             decoding={priority ? 'sync' : 'async'}
+            onError={(e) => {
+              e.currentTarget.onerror = null
+              e.currentTarget.src =
+                'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><rect width="600" height="600" fill="%2327272a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23a1a1aa" font-family="sans-serif" font-size="24">NFT Artwork</text></svg>'
+            }}
             className="size-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
           <div className="absolute inset-x-3 top-3 flex items-center justify-between gap-2">

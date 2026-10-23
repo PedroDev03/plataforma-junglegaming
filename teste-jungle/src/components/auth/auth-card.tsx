@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { Sparkles } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
@@ -21,7 +20,11 @@ export function AuthCard({
       <Card className="w-full">
         <CardHeader className="gap-1.5">
           <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-            <Sparkles className="size-3.5 text-primary" aria-hidden="true" />
+            <img
+              src="/logo.jfif"
+              alt="Logo JungleNFT"
+              className="size-4 rounded-xs object-cover"
+            />
             <span>JungleNFT Acesso Seguro</span>
           </div>
           <CardTitle role="heading" aria-level={1} className="text-2xl font-bold">

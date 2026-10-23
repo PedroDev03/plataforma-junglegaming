@@ -101,7 +101,7 @@ export const INITIAL_NFTS: NFT[] = [
     id: 'nft-007',
     name: 'Void Walker Blade',
     description: 'Espada lendária utilizável em arenas RPG Web3 com atributos verificáveis on-chain.',
-    imageUrl: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1589241062272-c0a000072dfa?auto=format&fit=crop&w=800&q=80',
     collection: 'Neo-Tokyo Legends',
     creatorName: 'Kenji Takahashi',
     creatorId: 'creator-2',
